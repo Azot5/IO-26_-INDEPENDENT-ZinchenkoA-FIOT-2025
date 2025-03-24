@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Звіт з лабораторних робіт</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f9;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #4CAF50;
+			padding: 10px 20px;
+			text-align: center;
+			color: white;
+		}
+
+		.container {
+			width: 80%;
+			margin: 20px auto;
+			text-align: center;
+		}
+
+		.student-info {
+			margin: 15px 0;
+			font-size: 1.1em;
+		}
+
+		.menu {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 10px;
+			margin-bottom: 20px;
+		}
+
+			.menu button {
+				padding: 10px 20px;
+				background-color: #4CAF50;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 1em;
+			}
+
+				.menu button.active {
+					background-color: #45a049;
+					font-weight: bold;
+				}
+
+		.main {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			margin-top: 20px;
+		}
+
+		.sidebar {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+			.sidebar button {
+				padding: 10px 15px;
+				background-color: #4CAF50;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				text-align: left;
+			}
+
+		.content {
+			background-color: white;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			width: 60%;
+			min-height: 300px;
+			padding: 20px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			overflow: auto;
+		}
+
+		footer {
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>ЗВІТ З ЛАБОРАТОРНИХ РОБІТ</h1>
+	</header>
+
+	<div class="container">
+		<div class="student-info">Студент групи ІО-26 Зінченко Андрій </div>
+
+		<div class="menu">
+			<button onclick="changeLab(1)" class="active">Лабораторна робота №1</button>
+			<button onclick="changeLab(2)">Лабораторна робота №2</button>
+			<button onclick="changeLab(3)">Лабораторна робота №3</button>
+			<button onclick="changeLab(4)">Лабораторна робота №4</button>
+			<button onclick="changeLab(5)">Лабораторна робота №5</button>
+			<button onclick="changeLab(6)">Лабораторна робота №6</button>
+			<button onclick="changeLab(7)">Лабораторна робота №7</button>
+			<button onclick="changeLab(8)">Лабораторна робота №8</button>
+			<button onclick="changeLab(9)">Лабораторна робота №9</button>
+		</div>
+
+		<div class="main">
+			<div class="sidebar">
+				<button onclick="showContent('description')">Опис предметного середовища</button>
+				<button onclick="showContent('theme')">Тема Мета Місце розташування</button>
+				<button onclick="showContent('structure')">СТРУКТУРА ДОКУМЕНТА</button>
+				<button onclick="showContent('tables')">HTML-код ТАБЛИЦЬ</button>
+				<button onclick="showContent('forms')">HTML-код ФОРМ</button>
+				<button onclick="showContent('images')">HTML-код ЗОБРАЖЕННЯ</button>
+				<button onclick="showContent('conclusions')">ВИСНОВКИ</button>
+			</div>
+			<div class="content" id="output">Оберіть лабораторну роботу та розділ для перегляду інформації</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>&copy;</p>
+	</footer>
+
+	<script>
+		// Дані для лабораторних робіт
+		const labData = {
+			1: {
+				description: "<h3>Опис предметного середовища</h3><p>Ця лабораторна робота присвячена основам HTML. Предметне середовище - веб-браузер, який інтерпретує HTML-код.</p>",
+				theme: "<h3>Тема, Мета, Місце розташування</h3><p><strong>Тема:</strong> Основи HTML<br><strong>Мета:</strong> Навчитися створювати базові HTML-документи<br><strong>Місце розташування:</strong> <a href='#'>Посилання на роботу</a></p>",
+				structure: "<h3>СТРУКТУРА ДОКУМЕНТА</h3><p>Базова структура HTML-документа включає теги &lt;html&gt;, &lt;head&gt; і &lt;body&gt;.</p>",
+				tables: "<h3>HTML-код ТАБЛИЦЬ</h3><pre>&lt;table border='1'&gt;\n  &lt;tr&gt;\n    &lt;th&gt;Заголовок 1&lt;/th&gt;\n    &lt;th&gt;Заголовок 2&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Дані 1&lt;/td&gt;\n    &lt;td&gt;Дані 2&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;</pre>",
+				forms: "",
+				images: "<h3>HTML-код ЗОБРАЖЕННЯ</h3><pre>&lt;img src='image.jpg' alt='Опис зображення' width='300'&gt;</pre>",
+				conclusions: "<h3>ВИСНОВКИ</h3><p>У ході лабораторної роботи було вивчено основи HTML, створено базову структуру документа, таблиці, форми та додано зображення.</p>"
+			},
+		};
+
+		let currentLab = 1;
+
+		// Функція для зміни лабораторної роботи
+		function changeLab(labNumber) {
+			currentLab = labNumber;
+			// Оновлюємо активну кнопку
+			document.querySelectorAll('.menu button').forEach(btn => {
+				btn.classList.remove('active');
+				if (btn.textContent.includes(`№${labNumber}`)) {
+					btn.classList.add('active');
+				}
+			});
+			// Показуємо перший розділ нової лабораторної
+			showContent('description');
+		}
+
+		// Функція для відображення вмісту
+		function showContent(contentType) {
+			const output = document.getElementById("output");
+			if (labData[currentLab] && labData[currentLab][contentType]) {
+				output.innerHTML = labData[currentLab][contentType];
+			} else {
+				output.innerHTML = `<h3>Інформація відсутня</h3><p>Дані для лабораторної роботи ${currentLab}, розділу ${contentType} ще не додано.</p>`;
+			}
+		}
+
+		// Ініціалізація - показуємо перший розділ першої лабораторної
+		showContent('description');
+	</script>
+</body>
+</html>
