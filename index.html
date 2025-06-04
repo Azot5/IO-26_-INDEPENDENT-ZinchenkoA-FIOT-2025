@@ -34,6 +34,7 @@
     .team-members {
       display: flex;
       justify-content: center;
+
       gap: 20px;
       margin-bottom: 20px;
       flex-wrap: wrap;
@@ -376,202 +377,202 @@
           output: "<h3>Місце виведення інформації</h3><p>Тут може бути інформація про те, де виводиться результат роботи програми або скрипта.</p>",
           conclusions: "<h3>ВИСНОВКИ до ЛР №2</h3><div class='selector-example'><p>У ході виконання лабораторної роботи №2 було детально вивчено принципи роботи з каскадними таблицями стилів (CSS) та їх застосування для оформлення веб-сторінок. На практиці опановано різні способи підключення стилів: внутрішні, зовнішні та inline-стилі, що дозволяє гнучко керувати оформленням контенту. Особливу увагу приділено роботі з селекторами, зокрема, було застосовано селектори тегів, класів, ідентифікаторів, а також контекстні селектори та псевдокласи. Важливим аспектом роботи стало вивчення принципу каскадування та специфічності селекторів, що визначає пріоритетність застосування стилів. Практичні навички включали оформлення текстових елементів за допомогою властивостей font-family, font-size, text-align та інших, що значно покращує читабельність контенту. Досвід роботи з оформленням таблиць, форм та зображень засвідчив важливість CSS для створення сучасних інтерфейсів. Вивчення властивостей фону, контурів та списків розширило можливості візуального дизайну. У процесі роботи було створено повноцінну сторінку кабінету користувача, що демонструє практичне застосування вивчених технологій. Отримані знання та навички є важливою основою для подальшого вивчення веб-технологій та створення професійних веб-додатків. Загалом, лабораторна робота дозволила систематизувати знання з CSS та набути практичного досвіду роботи зі стилями.</p></div>",
           page: `<h3>Сторінка з лабораторної роботи №2</h3>
-                    <div class="lab2-header">
-                      <h1>Кабінет користувача</h1>
+                  <div class="lab2-header">
+                    <h1>Кабінет користувача</h1>
+                  </div>
+
+                  <div class="lab2-container">
+                    <div class="queue-title">Тестова Електронна Черга</div>
+                    <div class="lab2-header-content">
+                      Ви увійшли як <strong id="username">Користувач</strong>
+                      <button onclick="alert('Вийти')" class="btn1">Вийти</button>
+                      <button onclick="alert('Редагувати акаунт')" class="btn1" id="editAccountButton" style="margin-top: 10px;">Редагувати акаунт</button>
                     </div>
 
-                    <div class="lab2-container">
-                      <div class="queue-title">Тестова Електронна Черга</div>
-                      <div class="lab2-header-content">
-                        Ви увійшли як <strong id="username">Користувач</strong>
-                        <button onclick="alert('Вийти')" class="btn1">Вийти</button>
-                        <button onclick="alert('Редагувати акаунт')" class="btn1" id="editAccountButton" style="margin-top: 10px;">Редагувати акаунт</button>
-                      </div>
+                    <h1 id="welcomeMessage">Ласкаво просимо, Користувач!</h1>
+                    <p>Ви успішно увійшли до свого кабінету.</p>
 
-                      <h1 id="welcomeMessage">Ласкаво просимо, Користувач!</h1>
-                      <p>Ви успішно увійшли до свого кабінету.</p>
+                    <p id="queueMessage">Ви знаходитесь поза чергою</p>
 
-                      <p id="queueMessage">Ви знаходитесь поза чергою</p>
+                    <button id="joinButton" class="lab2-btn">Долучитись</button>
+                    <button id="leaveButton" class="lab2-btn hidden">Вийти з черги</button>
 
-                      <button id="joinButton" class="lab2-btn">Долучитись</button>
-                      <button id="leaveButton" class="lab2-btn hidden">Вийти з черги</button>
+                    <div id="errorMessage" class="lab2-error" style="display:none;"></div>
+                  </div>
 
-                      <div id="errorMessage" class="lab2-error" style="display:none;"></div>
-                    </div>
+                  <div class="lab2-footer">
+                    <p>&copy; 2025 IO-26 Zinchenko A. Lab #1 Authentication System</p>
+                  </div>
 
-                    <div class="lab2-footer">
-                      <p>&copy; 2025 IO-26 Zinchenko A. Lab #1 Authentication System</p>
-                    </div>
-
-                    <h4>Код HTML:</h4>
-                    <div class="code-example">
+                  <h4>Код HTML:</h4>
+                  <div class="code-example">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="uk"&gt;
 &lt;head&gt;
-          &lt;meta charset="UTF-8"&gt;
-          &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-          &lt;title&gt;Кабінет користувача&lt;/title&gt;
-          &lt;style&gt;
-            body {
-              font-family: Arial, sans-serif;
-              background-color: #f4f4f9;
-              color: #333;
-              margin: 0;
-              padding: 0;
-            }
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Кабінет користувача&lt;/title&gt;
+        &lt;style&gt;
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+          }
 
-            header {
-              background-color: #4CAF50;
-              padding: 10px 20px;
-              text-align: center;
-              color: white;
-            }
+          header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            text-align: center;
+            color: white;
+          }
 
+          .container {
+            width: 30%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          h1 {
+            text-align: center;
+            color: white;
+          }
+
+          p {
+            font-size: 18px;
+            text-align: center;
+          }
+
+          .btn1 {
+            display: inline-block;
+            padding: 10px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+          }
+
+          .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+          }
+
+          .btn:hover {
+            background-color: #2C6E2F;
+          }
+
+          .error {
+            color: red;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 10px;
+          }
+
+          footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+          }
+
+          .queue-title {
+            position: absolute;
+            top: 35px;
+            left: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+          }
+
+          .header {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 18px;
+            color: white;
+          }
+
+          .hidden {
+            display: none;
+          }
+
+          #welcomeMessage {
+            color: black;
+          }
+
+          @media (max-width: 1020px) {
             .container {
-              width: 30%;
-              margin: 50px auto;
-              padding: 20px;
-              background-color: white;
-              border-radius: 10px;
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              width: 90%;
             }
 
-            h1 {
-              text-align: center;
-              color: white;
-            }
-
-            p {
-              font-size: 18px;
-              text-align: center;
-            }
-
-            .btn1 {
-              display: inline-block;
-              padding: 10px;
-              background-color: #388E3C;
-              color: white;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-              font-size: 1.1em;
-            }
-
-            .btn {
-              width: 100%;
-              padding: 10px;
-              background-color: #388E3C;
-              color: white;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-              font-size: 1.1em;
-            }
-
-            .btn:hover {
-              background-color: #2C6E2F;
-            }
-
-            .error {
-              color: red;
-              text-align: center;
-              font-size: 0.9em;
-              margin-top: 10px;
-            }
-
-            footer {
-              background-color: #333;
-              color: white;
-              text-align: center;
-              padding: 10px;
-              position: absolute;
-              bottom: 0;
-              width: 100%;
+            .queue-title, .header, #welcomeMessage, .btn {
+              display: block;
+              text-align: left;
             }
 
             .queue-title {
-              position: absolute;
-              top: 35px;
-              left: 20px;
-              font-size: 26px;
-              font-weight: bold;
-              color: white;
+              order: 1;
             }
 
             .header {
-              position: absolute;
-              top: 10px;
-              right: 20px;
-              font-size: 18px;
-              color: white;
-            }
-
-            .hidden {
-              display: none;
+              order: 2;
             }
 
             #welcomeMessage {
-              color: black;
+              order: 3;
             }
 
-            @media (max-width: 1020px) {
-              .container {
-                width: 90%;
-              }
-
-              .queue-title, .header, #welcomeMessage, .btn {
-                display: block;
-                text-align: left;
-              }
-
-              .queue-title {
-                order: 1;
-              }
-
-              .header {
-                order: 2;
-              }
-
-              #welcomeMessage {
-                order: 3;
-              }
-
-              .btn {
-                order: 4;
-              }
+            .btn {
+              order: 4;
             }
-          &lt;/style&gt;
+          }
+        &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-          &lt;header&gt;
-            &lt;h1&gt;Кабінет користувача&lt;/h1&gt;
-          &lt;/header&gt;
+        &lt;header&gt;
+          &lt;h1&gt;Кабінет користувача&lt;/h1&gt;
+        &lt;/header&gt;
 
-          &lt;div class="container"&gt;
-            &lt;div class="queue-title"&gt;Тестова Електронна Черга&lt;/div&gt;
-            &lt;div class="header"&gt;
-              Ви увійшли як &lt;strong id="username"&gt;&lt;/strong&gt;
-              &lt;button onclick="logout()" class="btn1"&gt;Вийти&lt;/button&gt;
-              &lt;button onclick="editAccount()" class="btn1" id="editAccountButton" style="margin-top: 10px;"&gt;Редагувати акаунт&lt;/button&gt;
-            &lt;/div&gt;
-
-            &lt;h1 id="welcomeMessage"&gt;&lt;/h1&gt;
-            &lt;p&gt;Ви успішно увійшли до свого кабінету.&lt;/p&gt;
-
-            &lt;p id="queueMessage"&gt;Завантаження статусу черги...&lt;/p&gt;
-
-            &lt;button id="joinButton" class="btn hidden"&gt;Долучитись&lt;/button&gt;
-            &lt;button id="leaveButton" class="btn hidden"&gt;Вийти з черги&lt;/button&gt;
-
-            &lt;div id="errorMessage" class="error" style="display:none;"&gt;&lt;/div&gt;
+        &lt;div class="container"&gt;
+          &lt;div class="queue-title"&gt;Тестова Електронна Черга&lt;/div&gt;
+          &lt;div class="header"&gt;
+            Ви увійшли як &lt;strong id="username"&gt;&lt;/strong&gt;
+            &lt;button onclick="logout()" class="btn1"&gt;Вийти&lt;/button&gt;
+            &lt;button onclick="editAccount()" class="btn1" id="editAccountButton" style="margin-top: 10px;"&gt;Редагувати акаунт&lt;/button&gt;
           &lt;/div&gt;
 
-          &lt;footer&gt;
-            &lt;p&gt;&copy; 2025 IO-26 Zinchenko A. Lab #1 Authentication System&lt;/p&gt;
-          &lt;/footer&gt;
+          &lt;h1 id="welcomeMessage"&gt;&lt;/h1&gt;
+          &lt;p&gt;Ви успішно увійшли до свого кабінету.&lt;/p&gt;
+
+          &lt;p id="queueMessage"&gt;Завантаження статусу черги...&lt;/p&gt;
+
+          &lt;button id="joinButton" class="btn hidden"&gt;Долучитись&lt;/button&gt;
+          &lt;button id="leaveButton" class="btn hidden"&gt;Вийти з черги&lt;/button&gt;
+
+          &lt;div id="errorMessage" class="error" style="display:none;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;footer&gt;
+          &lt;p&gt;&copy; 2025 IO-26 Zinchenko A. Lab #1 Authentication System&lt;/p&gt;
+        &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-                    </div>`
+                  </div>`
         }
       },
       3: {
@@ -584,447 +585,447 @@
         ],
         content: {
           theme: `<h3>Тема, Мета, Місце розташування ЛР3.1</h3>
-                       <p><strong>Тема:</strong> Верстка HTML-документу. Блокова верстка. Верстка засобами CSS та FLEXBOX</p>
-                       <p><strong>Мета:</strong>
-                         <ul>
-                           <li>Придбати практичні навички роботи верстки сторінок засобами CSS, верстки на основі плаваючих елементів. З'ясувати переваги та недоліки типів макетів веб-сторінок. Придбати практичні навички роботи верстки сторінок засобами CSS та FLEXBOX</li>
-                         </ul>
-                       </p>`,
+                     <p><strong>Тема:</strong> Верстка HTML-документу. Блокова верстка. Верстка засобами CSS та FLEXBOX</p>
+                     <p><strong>Мета:</strong>
+                       <ul>
+                         <li>Придбати практичні навички роботи верстки сторінок засобами CSS, верстки на основі плаваючих елементів. З'ясувати переваги та недоліки типів макетів веб-сторінок. Придбати практичні навички роботи верстки сторінок засобами CSS та FLEXBOX</li>
+                       </ul>
+                     </p>`,
 
           task1: `<h3>Завдання 1 - Макет сайту</h3>
-                       <p>Для макету сайту було використано гумовий (адаптивний) тип макету, який дозволяє сторінці коректно відображатися на різних пристроях з різними розмірами екрану.</p>
-                       <p><strong>Базова концепція верстки:</strong> Використання семантичних HTML5 тегів у поєднанні з CSS для стилізації, включаючи технологію Flexbox для створення гнучких макетів.</p>
-                       <img src="screenshot.jpg" alt="Скріншот головної сторінки" class="task-image">
-                       <h4>HTML-код головної сторінки:</h4>
-                       <div class="code-example">
+                     <p>Для макету сайту було використано гумовий (адаптивний) тип макету, який дозволяє сторінці коректно відображатися на різних пристроях з різними розмірами екрану.</p>
+                     <p><strong>Базова концепція верстки:</strong> Використання семантичних HTML5 тегів у поєднанні з CSS для стилізації, включаючи технологію Flexbox для створення гнучких макетів.</p>
+                     <img src="screenshot.jpg" alt="Скріншот головної сторінки" class="task-image">
+                     <h4>HTML-код головної сторінки:</h4>
+                     <div class="code-example">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="uk"&gt;
 &lt;head&gt;
-        &lt;meta charset="UTF-8"&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Мій сайт&lt;/title&gt;
-        &lt;link rel="stylesheet" href="styles.css"&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Мій сайт&lt;/title&gt;
+      &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-        &lt;header&gt;
-          &lt;h1&gt;Мій сайт&lt;/h1&gt;
-          &lt;nav&gt;
-            &lt;ul&gt;
-              &lt;li&gt;&lt;a href="#"&gt;Головна&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#"&gt;Про нас&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="#"&gt;Контакти&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/nav&gt;
-        &lt;/header&gt;
+      &lt;header&gt;
+        &lt;h1&gt;Мій сайт&lt;/h1&gt;
+        &lt;nav&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Головна&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Про нас&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Контакти&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+      &lt;/header&gt;
 
-        &lt;main&gt;
-          &lt;article&gt;
-            &lt;h2&gt;Основний контент&lt;/h2&gt;
-            &lt;p&gt;Тут розміщується основний вміст сторінки.&lt;/p&gt;
-          &lt;/article&gt;
+      &lt;main&gt;
+        &lt;article&gt;
+          &lt;h2&gt;Основний контент&lt;/h2&gt;
+          &lt;p&gt;Тут розміщується основний вміст сторінки.&lt;/p&gt;
+        &lt;/article&gt;
 
-          &lt;aside&gt;
-            &lt;h3&gt;Бічна панель&lt;/h3&gt;
-            &lt;p&gt;Додаткова інформація.&lt;/p&gt;
-          &lt;/aside&gt;
-        &lt;/main&gt;
+        &lt;aside&gt;
+          &lt;h3&gt;Бічна панель&lt;/h3&gt;
+          &lt;p&gt;Додаткова інформація.&lt;/p&gt;
+        &lt;/aside&gt;
+      &lt;/main&gt;
 
-        &lt;footer&gt;
-          &lt;p&gt;&copy; 2023 Мій сайт&lt;/p&gt;
-        &lt;/footer&gt;
+      &lt;footer&gt;
+        &lt;p&gt;&copy; 2023 Мій сайт&lt;/p&gt;
+      &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-                       </div>`,
+                     </div>`,
 
           task2: `<h3>Завдання 2 - Таблична та блокова верстка</h3>
 
-                       <h4>Фіксована таблична верстка</h4>
-                       <div class="layout-example fixed-table-layout">
-                         <table border="1" width="100%">
-                           <tr>
-                             <td width="200px">Фіксований бічний бар</td>
-                             <td>Основний контент</td>
-                           </tr>
-                         </table>
-                         <div class="code-example">
+                     <h4>Фіксована таблична верстка</h4>
+                     <div class="layout-example fixed-table-layout">
+                       <table border="1" width="100%">
+                         <tr>
+                           <td width="200px">Фіксований бічний бар</td>
+                           <td>Основний контент</td>
+                         </tr>
+                       </table>
+                       <div class="code-example">
 &lt;table border="1" width="100%"&gt;
-        &lt;tr&gt;
-          &lt;td width="200px"&gt;Фіксований бічний бар&lt;/td&gt;
-          &lt;td&gt;Основний контент&lt;/td&gt;
-        &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td width="200px"&gt;Фіксований бічний бар&lt;/td&gt;
+        &lt;td&gt;Основний контент&lt;/td&gt;
+      &lt;/tr&gt;
 &lt;/table&gt;
-                         </div>
                        </div>
+                     </div>
 
-                       <h4>Гумова таблична верстка</h4>
-                       <div class="layout-example fluid-table-layout">
-                         <table border="1" width="100%">
-                           <tr>
-                             <td width="20%">Бічний бар (20%)</td>
-                             <td width="80%">Основний контент (80%)</td>
-                           </tr>
-                         </table>
-                         <div class="code-example">
+                     <h4>Гумова таблична верстка</h4>
+                     <div class="layout-example fluid-table-layout">
+                       <table border="1" width="100%">
+                         <tr>
+                           <td width="20%">Бічний бар (20%)</td>
+                           <td width="80%">Основний контент (80%)</td>
+                         </tr>
+                       </table>
+                       <div class="code-example">
 &lt;table border="1" width="100%"&gt;
-        &lt;tr&gt;
-          &lt;td width="20%"&gt;Бічний бар (20%)&lt;/td&gt;
-          &lt;td width="80%"&gt;Основний контент (80%)&lt;/td&gt;
-        &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td width="20%"&gt;Бічний бар (20%)&lt;/td&gt;
+        &lt;td width="80%"&gt;Основний контент (80%)&lt;/td&gt;
+      &lt;/tr&gt;
 &lt;/table&gt;
-                         </div>
                        </div>
+                     </div>
 
-                       <h4>Фіксована блокова верстка</h4>
-                       <div class="layout-example fixed-block-layout">
-                         <div style="width: 200px; float: left; background: #f0f0f0; padding: 10px;">Фіксований бічний бар</div>
-                         <div style="margin-left: 220px; background: #e0e0e0; padding: 10px;">Основний контент</div>
-                         <div style="clear: both;"></div>
-                         <div class="code-example">
+                     <h4>Фіксована блокова верстка</h4>
+                     <div class="layout-example fixed-block-layout">
+                       <div style="width: 200px; float: left; background: #f0f0f0; padding: 10px;">Фіксований бічний бар</div>
+                       <div style="margin-left: 220px; background: #e0e0e0; padding: 10px;">Основний контент</div>
+                       <div style="clear: both;"></div>
+                       <div class="code-example">
 &lt;div style="width: 200px; float: left;"&gt;Фіксований бічний бар&lt;/div&gt;
 &lt;div style="margin-left: 220px;"&gt;Основний контент&lt;/div&gt;
 &lt;div style="clear: both;"&gt;&lt;/div&gt;
-                         </div>
                        </div>
+                     </div>
 
-                       <h4>Гумова блокова верстка</h4>
-                       <div class="layout-example fluid-block-layout">
-                         <div style="width: 20%; float: left; background: #f0f0f0; padding: 10px;">Бічний бар (20%)</div>
-                         <div style="width: 80%; float: left; background: #e0e0e0; padding: 10px;">Основний контент (80%)</div>
-                         <div style="clear: both;"></div>
-                         <div class="code-example">
+                     <h4>Гумова блокова верстка</h4>
+                     <div class="layout-example fluid-block-layout">
+                       <div style="width: 20%; float: left; background: #f0f0f0; padding: 10px;">Бічний бар (20%)</div>
+                       <div style="width: 80%; float: left; background: #e0e0e0; padding: 10px;">Основний контент (80%)</div>
+                       <div style="clear: both;"></div>
+                       <div class="code-example">
 &lt;div style="width: 20%; float: left;"&gt;Бічний бар (20%)&lt;/div&gt;
 &lt;div style="width: 80%; float: left;"&gt;Основний контент (80%)&lt;/div&gt;
 &lt;div style="clear: both;"&gt;&lt;/div&gt;
-                         </div>
-                       </div>`,
+                       </div>
+                     </div>`,
 
           task3: `<h3>Завдання 3 - Flexbox (варіант 7)</h3>
-                       <p>Варіант 7 передбачає створення макету з головним контейнером, заголовком, основним вмістом у вигляді карток та футером.</p>
+                     <p>Варіант 7 передбачає створення макету з головним контейнером, заголовком, основним вмістом у вигляді карток та футером.</p>
 
-                       <h4>Зовнішній вигляд сторінки:</h4>
-                       <div class="flexbox-container" style="border: 1px solid #ddd; padding: 20px;">
-                         <div style="width: 100%; background: #4CAF50; color: white; padding: 10px; text-align: center;">Заголовок</div>
-                         <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; margin: 20px 0;">
-                           <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 1</div>
-                           <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 2</div>
-                           <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 3</div>
-                         </div>
-                         <div style="width: 100%; background: #333; color: white; padding: 10px; text-align: center;">Футер</div>
+                     <h4>Зовнішній вигляд сторінки:</h4>
+                     <div class="flexbox-container" style="border: 1px solid #ddd; padding: 20px;">
+                       <div style="width: 100%; background: #4CAF50; color: white; padding: 10px; text-align: center;">Заголовок</div>
+                       <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; margin: 20px 0;">
+                         <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 1</div>
+                         <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 2</div>
+                         <div style="flex: 1 1 200px; background: #f0f0f0; padding: 15px; border-radius: 5px;">Картка 3</div>
                        </div>
+                       <div style="width: 100%; background: #333; color: white; padding: 10px; text-align: center;">Футер</div>
+                     </div>
 
-                       <h4>HTML-код:</h4>
-                       <div class="code-example">
+                     <h4>HTML-код:</h4>
+                     <div class="code-example">
 &lt;!DOCTYPE html&gt;
 &lt;html lang="uk"&gt;
 &lt;head&gt;
-        &lt;meta charset="UTF-8"&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Flexbox варіант 7&lt;/title&gt;
-        &lt;link rel="stylesheet" href="styles.css"&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Flexbox варіант 7&lt;/title&gt;
+      &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-        &lt;div class="container"&gt;
-          &lt;header class="header"&gt;
-            &lt;h1&gt;Заголовок&lt;/h1&gt;
-          &lt;/header&gt;
+      &lt;div class="container"&gt;
+        &lt;header class="header"&gt;
+          &lt;h1&gt;Заголовок&lt;/h1&gt;
+        &lt;/header&gt;
 
-          &lt;main class="content"&gt;
-            &lt;div class="card"&gt;
-              &lt;h2&gt;Картка 1&lt;/h2&gt;
-              &lt;p&gt;Вміст картки 1&lt;/p&gt;
-            &lt;/div&gt;
+        &lt;main class="content"&gt;
+          &lt;div class="card"&gt;
+            &lt;h2&gt;Картка 1&lt;/h2&gt;
+            &lt;p&gt;Вміст картки 1&lt;/p&gt;
+          &lt;/div&gt;
 
-            &lt;div class="card"&gt;
-              &lt;h2&gt;Картка 2&lt;/h2&gt;
-              &lt;p&gt;Вміст картки 2&lt;/p&gt;
-            &lt;/div&gt;
+          &lt;div class="card"&gt;
+            &lt;h2&gt;Картка 2&lt;/h2&gt;
+            &lt;p&gt;Вміст картки 2&lt;/p&gt;
+          &lt;/div&gt;
 
-            &lt;div class="card"&gt;
-              &lt;h2&gt;Картка 3&lt;/h2&gt;
-              &lt;p&gt;Вміст картки 3&lt;/p&gt;
-            &lt;/div&gt;
-          &lt;/main&gt;
+          &lt;div class="card"&gt;
+            &lt;h2&gt;Картка 3&lt;/h2&gt;
+            &lt;p&gt;Вміст картки 3&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/main&gt;
 
-          &lt;footer class="footer"&gt;
-            &lt;p&gt;Футер&lt;/p&gt;
-          &lt;/footer&gt;
-        &lt;/div&gt;
+        &lt;footer class="footer"&gt;
+          &lt;p&gt;Футер&lt;/p&gt;
+        &lt;/footer&gt;
+      &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-                       </div>
+                     </div>
 
-                       <h4>CSS-код:</h4>
-                       <div class="code-example">
+                     <h4>CSS-код:</h4>
+                     <div class="code-example">
 .container {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
 }
 
 .header {
-        background-color: #4CAF50;
-        color: white;
-        padding: 20px;
-        text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
 }
 
 .content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px;
-        flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      flex: 1;
 }
 
 .card {
-        flex: 1 1 200px;
-        background-color: #f0f0f0;
-        padding: 15px;
-        border-radius: 5px;
+      flex: 1 1 200px;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 5px;
 }
 
 .footer {
-        background-color: #333;
-        color: white;
-        padding: 20px;
-        text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
 }
-                       </div>`,
+                     </div>`,
 
           conclusions: `<h3>Висновки до ЛР3.1</h3>
-                            <p>У результаті виконання роботи було здобуто практичні навички верстки веб-сторінок з використанням табличного, блокового підходів і Flexbox. Проаналізовано їхні переваги та недоліки, що дозволить обґрунтовано обирати найбільш ефективний метод для конкретних задач.</p>`
+                          <p>У результаті виконання роботи було здобуто практичні навички верстки веб-сторінок з використанням табличного, блокового підходів і Flexbox. Проаналізовано їхні переваги та недоліки, що дозволить обґрунтовано обирати найбільш ефективний метод для конкретних задач.</p>`
         }
       },
-      4: {
-        sections: [
-          { id: 'theme', name: 'Тема Мета Місце розташування ЛР3.2' },
-          { id: 'desktop', name: 'Десктопна версія' },
-          { id: 'tablet', name: 'Планшетна версія' },
-          { id: 'mobile', name: 'Мобільна версія' },
-          { id: 'conclusions', name: 'Висновки до ЛР3.2' }
-        ],
-        content: {
-          theme: `<h3>Тема, Мета, Місце розташування ЛР3.2</h3>
-               <p><strong>Тема:</strong> Адаптивна верстка. Медіа-запити. Метатег viewport. Стратегія Mobile First.</p>
-               <p><strong>Мета:</strong> Навчитися створювати адаптивні веб-сторінки, які коректно відображаються на різних пристроях. Опанувати роботу з медіа-запитами та метатегом viewport. Зрозуміти принципи стратегії Mobile First. Використовувати логічні оператори у медіа-запитах.</p>`,
+			4: {
+				sections: [
+					{ id: 'theme', name: 'Тема Мета Місце розташування ЛР3.2' },
+					{ id: 'desktop', name: 'Десктопна версія' },
+					{ id: 'tablet', name: 'Планшетна версія' },
+					{ id: 'mobile', name: 'Мобільна версія' },
+					{ id: 'conclusions', name: 'Висновки до ЛР3.2' }
+				],
+				content: {
+					theme: `<h3>Тема, Мета, Місце розташування ЛР3.2</h3>
+             <p><strong>Тема:</strong> Адаптивна верстка. Медіа-запити. Метатег viewport. Стратегія Mobile First.</p>
+             <p><strong>Мета:</strong> Навчитися створювати адаптивні веб-сторінки, які коректно відображаються на різних пристроях. Опанувати роботу з медіа-запитами та метатегом viewport. Зрозуміти принципи стратегії Mobile First. Використовувати логічні оператори у медіа-запитах.</p>`,
 
-          desktop: `<h3>Десктопна версія</h3>
-                 <p>Десктопна версія розробляється для екранів з шириною більше 1200px. Для таких екранів характерне широке розташування елементів, наявність багаторядкового меню, використання великих зображень та подання деталізованої інформації.</p>
+					desktop: `<h3>Десктопна версія</h3>
+               <p>Десктопна версія розробляється для екранів з шириною більше 1200px. Для таких екранів характерне широке розташування елементів, наявність багаторядкового меню, використання великих зображень та подання деталізованої інформації.</p>
 
-                 <h4>Приклад медіа-запиту для десктопної версії:</h4>
-                 <div class="code-example">
+               <h4>Приклад медіа-запиту для десктопної версії:</h4>
+               <div class="code-example">
 /* Стилі для десктопів */
 @media (min-width: 1200px) {
-    .container {
-      width: 1200px;
-      margin: 0 auto;
-    }
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+  }
 
-    .menu {
-      display: flex;
-      justify-content: space-between;
-    }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .content {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 30px;
-    }
-}
-                 </div>
-
-                 <h4>Зовнішній вигляд:</h4>
-                 <div class="responsive-demo">
-                   <div class="responsive-box">Шапка сайту</div>
-                   <div class="responsive-box">Меню</div>
-                   <div class="responsive-box">Бічна панель</div>
-                   <div class="responsive-box">Основний контент</div>
-                   <div class="responsive-box">Додаткова інформація</div>
-                   <div class="responsive-box">Футер</div>
-                 </div>`,
-
-          tablet: `<h3>Планшетна версія</h3>
-               <p>Для екранів з шириною від 768px до 1199px розробляється планшетна версія. Вона характеризується компактнішим розташуванням елементів, переважно одноколонковою структурою з деякими винятками, використанням менших зображень та прихованням частини другорядного контенту.</p>
-
-               <h4>Приклад медіа-запиту для планшетної версії:</h4>
-               <div class="code-example">
-/* Стилі для планшетів */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .container {
-      width: 90%;
-      margin: 0 auto;
-    }
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .sidebar {
-      order: 2;
-    }
-
-    .main-content {
-      order: 1;
-    }
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+  }
 }
                </div>
 
                <h4>Зовнішній вигляд:</h4>
                <div class="responsive-demo">
-                 <div class="responsive-box" style="width: 100%;">Шапка сайту</div>
-                 <div class="responsive-box" style="width: 100%;">Меню</div>
-                 <div class="responsive-box" style="width: 100%;">Основний контент</div>
-                 <div class="responsive-box" style="width: 100%;">Бічна панель</div>
-                 <div class="responsive-box" style="width: 100%;">Футер</div>
+                 <div class="responsive-box">Шапка сайту</div>
+                 <div class="responsive-box">Меню</div>
+                 <div class="responsive-box">Бічна панель</div>
+                 <div class="responsive-box">Основний контент</div>
+                 <div class="responsive-box">Додаткова інформація</div>
+                 <div class="responsive-box">Футер</div>
                </div>`,
 
-          mobile: `<h3>Мобільна версія</h3>
-               <p>Мобільна версія призначена для екранів з шириною до 767px. Вона має одноколонкову структуру, використовує гамбургер-меню для навігації, відзначається дуже компактними елементами та мінімалістичним дизайном.</p>
+					tablet: `<h3>Планшетна версія</h3>
+             <p>Для екранів з шириною від 768px до 1199px розробляється планшетна версія. Вона характеризується компактнішим розташуванням елементів, переважно одноколонковою структурою з деякими винятками, використанням менших зображень та прихованням частини другорядного контенту.</p>
 
-               <h4>Приклад медіа-запиту для мобільної версії (Mobile First):</h4>
-               <div class="code-example">
+             <h4>Приклад медіа-запиту для планшетної версії:</h4>
+             <div class="code-example">
+/* Стилі для планшетів */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .main-content {
+    order: 1;
+  }
+}
+             </div>
+
+             <h4>Зовнішній вигляд:</h4>
+             <div class="responsive-demo">
+               <div class="responsive-box" style="width: 100%;">Шапка сайту</div>
+               <div class="responsive-box" style="width: 100%;">Меню</div>
+               <div class="responsive-box" style="width: 100%;">Основний контент</div>
+               <div class="responsive-box" style="width: 100%;">Бічна панель</div>
+               <div class="responsive-box" style="width: 100%;">Футер</div>
+             </div>`,
+
+					mobile: `<h3>Мобільна версія</h3>
+             <p>Мобільна версія призначена для екранів з шириною до 767px. Вона має одноколонкову структуру, використовує гамбургер-меню для навігації, відзначається дуже компактними елементами та мінімалістичним дизайном.</p>
+
+             <h4>Приклад медіа-запиту для мобільної версії (Mobile First):</h4>
+             <div class="code-example">
 /* Базові стилі (Mobile First) */
 .container {
-    width: 100%;
-    padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 .menu {
-    display: none; /* Приховане меню за замовчуванням */
+  display: none; /* Приховане меню за замовчуванням */
 }
 
 .menu-toggle {
-    display: block; /* Кнопка для відкриття меню */
+  display: block; /* Кнопка для відкриття меню */
 }
 
 /* Стилі для більших екранів додаються через min-width */
 @media (min-width: 768px) {
-    .menu {
-      display: flex;
-    }
+  .menu {
+    display: flex;
+  }
 
-    .menu-toggle {
-      display: none;
-    }
+  .menu-toggle {
+    display: none;
+  }
 }
-               </div>
+             </div>
 
-               <h4>Зовнішній вигляд:</h4>
-               <div class="responsive-demo">
-                 <div class="responsive-box" style="width: 100%;">Шапка сайту</div>
-                 <div class="responsive-box" style="width: 100%;">Кнопка меню</div>
-                 <div class="responsive-box" style="width: 100%;">Основний контент</div>
-                 <div class="responsive-box" style="width: 100%;">Футер</div>
-               </div>`,
+             <h4>Зовнішній вигляд:</h4>
+             <div class="responsive-demo">
+               <div class="responsive-box" style="width: 100%;">Шапка сайту</div>
+               <div class="responsive-box" style="width: 100%;">Кнопка меню</div>
+               <div class="responsive-box" style="width: 100%;">Основний контент</div>
+               <div class="responsive-box" style="width: 100%;">Футер</div>
+             </div>`,
 
-          conclusions: `<h3>Висновки до ЛР3.2</h3>
-                    <p>У ході виконання лабораторної роботи було вивчено принципи адаптивної верстки та роботи з медіа-запитами.</p>
+					conclusions: `<h3>Висновки до ЛР3.2</h3>
+                  <p>У ході виконання лабораторної роботи було вивчено принципи адаптивної верстки та роботи з медіа-запитами.</p>
 
-                    <h4>Метатег viewport</h4>
-                    <p>Метатег <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> є обов'язковим для коректного відображення сайту на мобільних пристроях. Він дозволяє налаштувати ширину вмісту відповідно до ширини екрана.</p>
+                  <h4>Метатег viewport</h4>
+                  <p>Метатег <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> є обов'язковим для коректного відображення сайту на мобільних пристроях. Він дозволяє налаштувати ширину вмісту відповідно до ширини екрана.</p>
 
-                    <h4>Медіа-запити</h4>
-                    <p>Медіа-запити — це можливість задавати стилі для різних пристроїв. Найпоширенішими є запити за мінімальною та максимальною шириною, а також орієнтацією екрана — наприклад, портретна.</p>
+                  <h4>Медіа-запити</h4>
+                  <p>Медіа-запити — це можливість задавати стилі для різних пристроїв. Найпоширенішими є запити за мінімальною та максимальною шириною, а також орієнтацією екрана — наприклад, портретна.</p>
 
-                    <h4>Логічні оператори</h4>
-                    <p>У медіа-запитах застосовуються логічні оператори: <code>and</code> (виконується за одночасного виконання обох умов), <code>,</code> (виконується, якщо виконується хоча б одна з умов) та <code>not</code> (заперечення).</p>
+                  <h4>Логічні оператори</h4>
+                  <p>У медіа-запитах застосовуються логічні оператори: <code>and</code> (виконується за одночасного виконання обох умов), <code>,</code> (виконується, якщо виконується хоча б одна з умов) та <code>not</code> (заперечення).</p>
 
-                    <h4>Стратегія Mobile First</h4>
-                    <p>Mobile First — це підхід, за якого спочатку створюється мобільна версія сторінки, а потім додаються стилі для більших екранів за допомогою <code>min-width</code>. Це забезпечує кращу продуктивність, плавне масштабування інтерфейсу та логічну структуру контенту.</p>
+                  <h4>Стратегія Mobile First</h4>
+                  <p>Mobile First — це підхід, за якого спочатку створюється мобільна версія сторінки, а потім додаються стилі для більших екранів за допомогою <code>min-width</code>. Це забезпечує кращу продуктивність, плавне масштабування інтерфейсу та логічну структуру контенту.</p>
 
-                    <p>Таким чином, було реалізовано адаптивну верстку, яка коректно працює на різних пристроях, а також закріплено навички роботи з медіа-запитами та іншими інструментами адаптивного дизайну.</p>`
-        }
-      },
-      5: {
-        sections: [
-          { id: 'theme', name: 'Тема, мета, місце розташування ЛР №4' },
-          { id: 'task7', name: 'Завдання 1 (варіант 7)' },
-          { id: 'conclusions', name: 'Висновки' }
-        ],
-        content: {
-          theme: `<h3>Тема, мета, місце розташування ЛР №4</h3>
-                  <p><strong>Тема:</strong> Об'єкт. Методи об'єкта. Масив об'єктів. Деструктуризація об'єктів. Callback. Стрілочні функції. Стрілочні функції як колбеки. Перебираючі методи масиву.</p>
-                  <p><strong>Мета:</strong> Придбати практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією, колбеками та стрілочними функціями.</p>`,
+                  <p>Таким чином, було реалізовано адаптивну верстку, яка коректно працює на різних пристроях, а також закріплено навички роботи з медіа-запитами та іншими інструментами адаптивного дизайну.</p>`
+				}
+			},
+			5: {
+				sections: [
+					{ id: 'theme', name: 'Тема, мета, місце розташування ЛР №4' },
+					{ id: 'task7', name: 'Завдання 1 (варіант 7)' },
+					{ id: 'conclusions', name: 'Висновки' }
+				],
+				content: {
+					theme: `<h3>Тема, мета, місце розташування ЛР №4</h3>
+                <p><strong>Тема:</strong> Об'єкт. Методи об'єкта. Масив об'єктів. Деструктуризація об'єктів. Callback. Стрілочні функції. Стрілочні функції як колбеки. Перебираючі методи масиву.</p>
+                <p><strong>Мета:</strong> Придбати практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією, колбеками та стрілочними функціями.</p>`,
 
-          task1: `<h3>Завдання 1 (варіант 1)</h3>
-                  <p>Напишіть наступні функції:</p>
-                  <p>Функція createProduct(obj, callback) приймає об'єкт товару без id та коллбек. Вона створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек, передаючи йому створений об'єкт.</p>
-                  <p>Функція logProduct(product) є колбеком, який приймає об'єкт продукту і виводить його в консоль.</p>
-                  <p>Функція logTotalPrice(product) є колбеком, який приймає об'єкт продукту і виводить загальну вартість товару в консоль.</p>
+					task1: `<h3>Завдання 1 (варіант 1)</h3>
+                <p>Напишіть наступні функції:</p>
+                <p>Функція createProduct(obj, callback) приймає об'єкт товару без id та коллбек. Вона створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек, передаючи йому створений об'єкт.</p>
+                <p>Функція logProduct(product) є колбеком, який приймає об'єкт продукту і виводить його в консоль.</p>
+                <p>Функція logTotalPrice(product) є колбеком, який приймає об'єкт продукту і виводить загальну вартість товару в консоль.</p>
 
-                  <h4>Код:</h4>
-                  <div class="code-example">
+                <h4>Код:</h4>
+                <div class="code-example">
 // Функція для створення продукту з унікальним id
 function createProduct(obj, callback) {
-      const product = {
-        ...obj,
-        id: Date.now() // Генеруємо унікальний id на основі поточного часу
-      };
-      callback(product); // Викликаємо колбек з новим продуктом
+    const product = {
+      ...obj,
+      id: Date.now() // Генеруємо унікальний id на основі поточного часу
+    };
+    callback(product); // Викликаємо колбек з новим продуктом
 }
 
 // Колбек для логування продукту
 function logProduct(product) {
-      console.log('Продукт:', product);
+    console.log('Продукт:', product);
 }
 
 // Колбек для логування загальної вартості
 function logTotalPrice(product) {
-      const total = product.price * product.quantity;
-      console.log('Загальна вартість:', total);
+    const total = product.price * product.quantity;
+    console.log('Загальна вартість:', total);
 }
 
 // Приклад використання
 const newProduct = {
-      name: 'Телефон',
-      price: 10000,
-      quantity: 2
+    name: 'Телефон',
+    price: 10000,
+    quantity: 2
 };
 
 createProduct(newProduct, logProduct); // Виведе інформацію про продукт
 createProduct(newProduct, logTotalPrice); // Виведе загальну вартість
-                  </div>`,
+                </div>`,
 
-          task7: `<h3>Завдання 7 (варіант 7)</h3>
-                  <p>Створіть клас Client, який створює об'єкт з властивостями login та email. Оголосіть приватні властивості #login та #email, доступ до яких реалізуйте через геттери та сеттери.</p>
+					task7: `<h3>Завдання 7 (варіант 7)</h3>
+                <p>Створіть клас Client, який створює об'єкт з властивостями login та email. Оголосіть приватні властивості #login та #email, доступ до яких реалізуйте через геттери та сеттери.</p>
 
-                  <h4>Код:</h4>
-                  <div class="code-example">
+                <h4>Код:</h4>
+                <div class="code-example">
 class Client {
-      #login;
-      #email;
+    #login;
+    #email;
 
-      constructor(login, email) {
-        this.#login = login;
-        this.#email = email;
-      }
+    constructor(login, email) {
+      this.#login = login;
+      this.#email = email;
+    }
 
-      // Геттер для login
-      get login() {
-        return this.#login;
-      }
+    // Геттер для login
+    get login() {
+      return this.#login;
+    }
 
-      // Сеттер для login
-      set login(newLogin) {
-        this.#login = newLogin;
-      }
+    // Сеттер для login
+    set login(newLogin) {
+      this.#login = newLogin;
+    }
 
-      // Геттер для email
-      get email() {
-        return this.#email;
-      }
+    // Геттер для email
+    get email() {
+      return this.#email;
+    }
 
-      // Сеттер для email
-      set email(newEmail) {
-        this.#email = newEmail;
-      }
+    // Сеттер для email
+    set email(newEmail) {
+      this.#email = newEmail;
+    }
 }
 
 // Приклад використання
@@ -1036,15 +1037,15 @@ client.login = 'newUser';
 client.email = 'new@example.com';
 console.log(client.login); // 'newUser'
 console.log(client.email); // 'new@example.com'
-                  </div>`,
+                </div>`,
 
-          conclusions: `<h3>Висновки</h3>
-                        <p>У ході виконання лабораторної роботи №4 було придбано практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією, колбеками та стрілочними функціями.</p>
-                        <p>Основні результати роботи включають опанування роботи з об'єктами та їх методами, зокрема створення об'єктів, додавання методів, використання гетерів та сетерів. Було вивчено роботу з масивами об'єктів, їх перетворення за допомогою методів map, filter, sort.</p>
-                        <p>Важливим аспектом роботи стало опанування використання колбеків та стрілочних функцій для створення гнучкого та модульного коду. Набуто практичного досвіду роботи з деструктуризацією об'єктів для спрощення доступу до їх властивостей.</p>
-                        <p>Додатково вивчено принципи роботи з приватними властивостями класів та їх інкапсуляції, а також методи роботи з рядками, зокрема перевірку правильності розташування дужок у коді.</p>
-                        <p>Отримані знання та навички є важливими для подальшого вивчення JavaScript та створення складних веб-додатків, оскільки вони становлять основу сучасного програмування на цій мові.</p>`
-        }
+					conclusions: `<h3>Висновки</h3>
+                      <p>У ході виконання лабораторної роботи №4 було придбано практичні навички роботи з об'єктами, методами об'єктів, масивами об'єктів, деструктуризацією, колбеками та стрілочними функціями.</p>
+                      <p>Основні результати роботи включають опанування роботи з об'єктами та їх методами, зокрема створення об'єктів, додавання методів, використання гетерів та сетерів. Було вивчено роботу з масивами об'єктів, їх перетворення за допомогою методів map, filter, sort.</p>
+                      <p>Важливим аспектом роботи стало опанування використання колбеків та стрілочних функцій для створення гнучкого та модульного коду. Набуто практичного досвіду роботи з деструктуризацією об'єктів для спрощення доступу до їх властивостей.</p>
+                      <p>Додатково вивчено принципи роботи з приватними властивостями класів та їх інкапсуляції, а також методи роботи з рядками, зокрема перевірку правильності розташування дужок у коді.</p>
+                      <p>Отримані знання та навички є важливими для подальшого вивчення JavaScript та створення складних веб-додатків, оскільки вони становлять основу сучасного програмування на цій мові.</p>`
+				}
       },
       6: {
         sections: [
@@ -1156,7 +1157,7 @@ console.log(client.email); // 'new@example.com'
 
 					conclusions: "<h3>Висновки до ЛР №5.1</h3>" +
 						"<p>У ході виконання лабораторної роботи №5.1 було придбано практичні навички роботи з HTML-документом за допомогою JavaScript. Ми опанували методи доступу до елементів DOM, такі як getElementById та querySelector, що дозволяє ефективно маніпулювати вмістом сторінки. Особливу увагу було приділено роботі з подіями через addEventListener, що є ключовим для створення інтерактивних інтерфейсів.</p>"
-        }
+			}
       },
       7: {
         sections: [
